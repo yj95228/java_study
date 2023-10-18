@@ -12,15 +12,15 @@ public class SwitchGradeTest3 {
 		case 90:
 		case 100:
 			System.out.println("A");
-			break;
+//			break;
 		case 80:
 		case 85:
 			System.out.println("B");
-			break;
+//			break;
 		case 70:
 		case 75:
 			System.out.println("C");
-			break;
+//			break;
 		default:
 			System.out.println("출력 완료");
 		}

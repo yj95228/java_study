@@ -9,6 +9,12 @@ import com.edu.service.EmployeeService;
 
 public class EmployeeServiceImpl implements EmployeeService{
 	
+	private static EmployeeServiceImpl service = new EmployeeServiceImpl();
+	private EmployeeServiceImpl() {};
+	public static EmployeeServiceImpl getInstance() {
+		return service;
+	}
+	
 	//1. 모든 직원의 정보를 출력하는 기능...일단 선언부만 작성 / 구현부는 나중에
 	public void printAllEmployee(ArrayList<Employee> emps) {
 		for(Employee e: emps) System.out.println(e.getDetails());
