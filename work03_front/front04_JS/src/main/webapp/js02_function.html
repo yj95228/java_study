@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+// 1. 선언적 함수 사용 -> 메모리에 먼저 올리고 인터프리팅
+func()
+func = function(){
+	alert('func A')
+}
+func = function(){
+	alert('func B')
+}
+
+// 2. 익명 함수
+func()
+function func(){
+	alert('func A')
+}
+function func(){
+	alert('func B')
+}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

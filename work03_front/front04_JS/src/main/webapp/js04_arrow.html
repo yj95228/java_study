@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6문법에서 추가된 Arrow 함수 사용</title>
+    <script>
+        // var calc = function(x, y){
+        //     return x+y
+        // }
+        // console.log(calc(5, 3))
+
+        // var calc = function(x, y){
+        //     return x*y
+        // }
+        // console.log(calc(5, 3))
+
+        var calc = (x, y) => x+y
+        console.log(calc(5, 3))
+        document.write(calc(5,3)+"<br>")
+
+        var calc = (x, y) => x*y
+        document.write(calc(5,3)+"<br>")
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

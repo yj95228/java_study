@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Insert title here</title>
+<style>
+.accent {
+	color: crimson;
+	font-size: 20px;
+}
+.larger {
+	font-size: 30px;
+}
+#box {
+	border: 1px solid red;
+	width: 100px;
+}
+/*
+	 input 태그의 속성이름과 값이 name="name"을 선택자로 지정하는 방법
+*/
+input[name="name"]{
+	background-color: yellow;
+}
+</style>
+</head>
+<body>
+<!-- 
+block tag
+inline tag
+ -->
+<h2>State Attribute</h2>
+<form action="#">
+	<h3 id="box">Enabled</h3>
+	<input type="text" name="name">
+	
+	<h3>Disabled</h3>
+	<input type="text" name="name" disabled="disabled" value="James">
+	
+	<h3>Readonly</h3>
+	<input type="text" name="name" readonly="readonly" value="SCSA21">
+	
+	<h3>Required</h3>
+	<input type="text" name="name" required="required">
+	<input type="submit" value="send data">
+	
+</form>
+<hr>
+<h1 class="accent">This heading will not be affected</h1>
+<p class="accent">This paragraph will be red and center-aligned.</p>
+<p class="accent larger">This paragraph will be red, center-aligned, and in a large font-size.</p> 
+</body>
+</html>

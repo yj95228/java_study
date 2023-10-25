@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+#parent {
+	border: 1px solid black;
+	padding: 10px;
+	overflow: hidden;
+}
+#child {
+	border: 1px solid tomato;
+	float: left;
+}
+#article {
+	border: 1px solid cyan;
+	float: right;
+	height: 30px;
+}
+/*
+자식요소에서 float를 사용할 경우 부모요소의 범위를 벗어나게 된다
+결과적으로 레이아웃이 망가지게 된다
+1. 부모요소의 범위를 아주 크게 잡아버린다
+2. overflow를 지정한다 -> hidden으로 부모요소에 설정해야한다
+*/
+</style>
+</head>
+<body>
+<div id="parent">
+	<div id="child">
+		SCSA21 과정
+	</div>
+</div>
+
+<div id="article">
+	2023-10-24 Today css Front Schedule
+</div>
+</body>
+</html>

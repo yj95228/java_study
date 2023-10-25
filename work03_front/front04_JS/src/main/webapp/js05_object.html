@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 객체 생성하기</title>
+    <script>
+        // 객체형 변수를 선언
+        var obj = {name:'James', age:28, phone:'010-111-2222'}
+        console.log(obj)
+
+        obj.info = function(){
+            return this.name+"님의 나이는 "+this.age+"살입니다"
+        }
+        // arrow 함수는 this를 못 씀
+        console.log(obj.info())
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

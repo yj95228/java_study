@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var myName = "James"
+name = "Peter"		// 자동으로 전역으로 잡힘
+console.log(myName)
+console.log(name)
+
+function showAge(){
+	var age = 33	// local변수
+	myAge = 44		// 전역변수
+	console.log(age)
+	console.log(myAge)
+}
+// console.log(age)
+showAge()
+console.log(age)
+console.log(myAge)
+</script>
+</head>
+<body>
+
+</body>
+</html>

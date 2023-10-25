@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+body{
+	width: 700px;
+	height: 600px;
+	margin: 0 auto;	/* width 지정 + margin 0 auto : 가운데 정렬 */
+}
+#order-list{
+	width: 300px;
+	float: left;
+}
+#unorder-list{
+	width: 300px;
+	float: right;
+}
+#btn{
+	clear: both;
+}
+#heading {
+	margin-left: 160px;
+	color: tomato;
+}
+#order-list, #unorder-list{
+	background-color: darksalmon;
+	border: 1px solid black;
+}
+</style>
+<script type="text/javascript">
+function push() {
+	// 이벤트 처리
+	alert('팝업창')
+}
+</script>
+</head>
+<body>
+
+<div id="heading">
+	<h1>This is heading 1</h1>
+	<h2>This is heading 2</h2>
+	<h3>This is heading 3</h3>
+</div>
+
+<div id="order-list">
+	<p>Ordered List</p>
+	<ol>
+		<li><a href="http://java.sun.com">JAVA</a></li>
+		<li>JDBC</li>
+		<li><a href="http://www.w3schools.com">FRONT</a></li>
+		<li>WEB</li>
+	</ol>
+</div>
+
+<div id="unorder-list">
+	<p>Unordered List</p>
+	<ul>
+		<li><a href="http://java.sun.com">JAVA</a></li>
+		<li>JDBC</li>
+		<li><a href="http://www.w3schools.com">FRONT</a></li>
+		<li>WEB</li>
+	</ul>
+</div>
+
+<div id="btn">
+	<hr>
+	<button onclick='push()'>CLICK ME</button>
+</div>
+</body>
+</html>

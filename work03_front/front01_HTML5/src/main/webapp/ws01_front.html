@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body{
+	width: 800px;
+	margin: 0 auto;
+	padding: 0px 50px 0px 50px;
+	border: 2px solid blue;
+}
+header {
+	text-align: center;
+}
+fieldset {
+	margin: 10px 0px 10px 0px;
+}
+section {
+	padding: 10px 0px 10px 0px;
+}
+</style>
+</head>
+<body>
+<header>
+	<h1>그대들은 어떻게 살 것인가?</h1>
+	<h2>==== SCSA ★ 영화예매 ====</h2>
+	<img alt="영화 포스터" src="https://thumb.mtstarnews.com/06/2023/07/2023071716082731642_2.jpg" width="50%">
+</header>
+<form>
+	<label for="theater">상영관</label>
+	<select name="theater" id="theater">
+		<option value="CGV">CGV</option>
+		<option value="롯데시네마">롯데시네마</option>
+		<option value="메가박스">메가박스</option>
+	</select>
+	
+	<span>날짜</span> <input type="date" />
+	<fieldset>
+		<legend>시간선택</legend>
+		<input id="first" name="time" type="radio" value="08:30" checked="checked" />
+		<label for="first">08:30</label>
+		<input id="second" name="time" type="radio" value="11:00" />
+		<label for="second">11:00</label>
+		<input id="third" name="time" type="radio" value="14:20" />
+		<label for="third">14:20</label>
+		<input id="forth" name="time" type="radio" value="17:25" />
+		<label for="forth">17:25</label>
+		<input id="fifth" name="time" type="radio" value="20:10" />
+		<label for="fifth">20:10</label>
+		<input id="sixth" name="time" type="radio" value="23:05" />
+		<label for="sixth">23:05</label>
+	</fieldset>
+	
+	<section>
+		<span>요금</span>
+		<del>\9,000</del>
+		<ins>\5,000</ins>
+	</section>
+	
+	<section>
+		<span>인원</span>
+		<input type="number" required="required" value=0>
+	</section>	
+
+	<section>
+		<span>금액</span>
+		<input type="number" readonly="readonly" value=0>
+	</section>	
+	
+	<section>
+		<input type="checkbox" checked="checked">
+		<span>옵션</span>
+		
+		<fieldset>
+			<input type="checkbox" value="popcorn"><label>팝콘</label>
+			<input type="checkbox" value="cola"><label>콜라</label>
+		</fieldset>
+	</section>
+
+</form>
+</body>
+</html>

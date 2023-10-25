@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/*
+	1. table 선택자로 지정 후 가로 사이즈를 600px, 가운데 정렬
+	2. table, th, tr, td 선택자로 지정 후 경계선 1px 실선 검정
+*/
+h2 {
+	text-align: center;
+	color: crimson; 
+}
+table, th, tr, td {
+	border: 1px solid black;
+	border-collapse: collapse; 
+}
+table {
+	width: 800px;
+	margin: 0 auto;
+}
+th {
+	color: tomato;
+}
+td {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h2>A basic HTML table</h2>
+
+<table>
+	<thead>
+	  <tr>
+	    <th>Company</th>
+	    <th>Contact</th>
+	    <th>Country</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+	    <td>Alfreds Futterkiste</td>
+	    <td>Maria Anders</td>
+	    <td>Germany</td>
+	  </tr>
+	  <tr>
+	    <td>Centro comercial Moctezuma</td>
+	    <td>Francisco Chang</td>
+	    <td>Mexico</td>
+	  </tr>
+	  <tr>
+	    <td>Centro comercial Moctezuma1</td>
+	    <td>Francisco Chang1</td>
+	    <td>Mexico1</td>
+	  </tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3">
+				<p>To understand the example better, we have added borders to the table.</p>
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</body>
+</html>
+
