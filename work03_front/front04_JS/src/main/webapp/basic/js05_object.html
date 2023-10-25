@@ -9,9 +9,15 @@
         var obj = {name:'James', age:28, phone:'010-111-2222'}
         console.log(obj)
 
-        obj.info = function(){
-            return this.name+"님의 나이는 "+this.age+"살입니다"
-        }
+        // obj.info = function(){
+        //     return this.name+"님의 나이는 "+this.age+"살입니다"
+        // }
+
+        // 아래와 같이 쓰면 '님의 나이는 undefined살입니다'라고 나옴
+        obj.info = () => this.name+"님의 나이는 "+this.age+"살입니다"
+
+        // 익명 함수에서는 this 대신 obj로 호출
+        obj.info = () => obj.name+"님의 나이는 "+obj.age+"살입니다"
         // arrow 함수는 this를 못 씀
         console.log(obj.info())
     </script>

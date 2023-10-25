@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3{
+            border: 2px dotted tomato;
+            width: 80%;
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <script>
+        let count = 0
+        const message = [
+            "오늘은 동물원 가는 날",
+            "내일은 워크샵 마무리 하는 날",
+            "모레는 과목평가 잘 보는 날"
+        ]
+        onload = function() {
+            setInterval(() => {
+                const h3 = document.querySelector('h3')
+                h3.innerHTML = message[(count++)%message.length]
+            }, 1000)
+        }
+    </script>
+</head>
+<body>
+    <h1>Banner 광고입니다</h1>
+    <h3 style="color: crimson">Happy Day</h3>
+</body>
+</html>

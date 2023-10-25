@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const choiceMenu = () => {
+            let str = ''
+            const menus = document.querySelectorAll('.menu')
+            menus.forEach((item, idx) => {
+                if(item.checked) str += item.value+" "
+                item.checked = false
+            });
+            if(str === '') alert('하나 이상 선택해주세요')
+            else alert(str)
+        }
+
+        onload = function() {
+            document.querySelectorAll(".menu")
+                .forEach((item, idx) => {
+                    item.onclick = function() {
+                        let id = this.closest('.main-menu').attributes['id'].value
+                        alert(id)
+                    }
+                })
+        }
+
+    </script>
+</head>
+<body>
+    <form name="frm">
+        <div class="main-menu" id="lunch">
+            <strong>오늘 먹고 싶은 점심 메뉴를 다 고르세요...</strong><br><br>
+            <input type="checkbox" name="menu" value="된장찌개" class="menu">된장찌개<br>
+            <input type="checkbox" name="menu" value="김치찌개" class="menu">김치찌개<br>
+            <input type="checkbox" name="menu" value="카레라이스" class="menu">카레라이스<br>
+            <input type="checkbox" name="menu" value="우동" class="menu">우동<br>
+            <input type="button" value="CHOICE" onclick="choiceMenu()">
+            
+            <button class="menus">Lunch Choice</button>
+        </div>
+        <div class="main-menu" id="dinner">
+            <strong>오늘 먹고 싶은 저녁 메뉴를 다 고르세요...</strong><br><br>
+            <input type="checkbox" name="menu1" value="된장찌개1" class="menu">된장찌개1<br>
+            <input type="checkbox" name="menu1" value="김치찌개2" class="menu">김치찌개2<br>
+            <input type="checkbox" name="menu1" value="카레라이스3" class="menu">카레라이스3<br>
+            <input type="checkbox" name="menu1" value="우동4" class="menu">우동4<br>
+            <input type="button" value="CHOICE" onclick="choiceMenu()">
+            
+            <button class="menus">Dinner Choice</button>
+        </div>
+        </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click 이벤트</title>
+    <style>
+        h1::selection {
+            background-color: black;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>What can JavaScript Do?</h1>
+    <p id="demo">JavaScript can change HTML content ... Using onclick properties</p>
+    <button id="change">Click Me1</button>
+</body>
+<script>
+    const push = () => {
+        const demo = document.querySelector('#demo')
+        demo.innerHTML = '<h2><font color="red">Hello getElementById()</font></h2>'
+    }
+    document.querySelector("#change").onclick = push // 괄호는 무시 -> 함수 호출 X
+</script>
+</html>

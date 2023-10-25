@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복합연산자, onload함수</title>
+    <script>
+        // 저 아래에 있는 html 모든 element들을 메모리에 다 올려놓고
+        // 그리고나서 바로아래 script 부분을 실행하도록 하는 함수
+        // window.onload(익명함수)
+        
+        // window.onload = function(){...}
+        window.onload = () => {
+            var list = ''
+            // 복합연산자 사용
+            list += '<ul>'
+            list += '<li>Hello</li>'
+            list += '<li>Javascript</li>'
+            list += '</ul>'
+            
+            // 특정한 element를 찾아서 위의 내용을 브라우저 화면에 붙인다
+            document.getElementById("wrap").innerHTML = list;
+        }
+    </script>
+</head>
+<body>
+    <h2 align="center"> ======== onload ======== </h2>
+    <div id="wrap">
+    
+    </div>
+</body>
+</html>
