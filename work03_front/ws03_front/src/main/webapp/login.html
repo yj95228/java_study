@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- article.css | nav.css |  footer.css 외부 파일 연결 -->
-  
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/article.css">  
+  <link rel="stylesheet" href="css/footer.css"> 
   <style>
 
     #login {
@@ -49,23 +49,34 @@
       float: right;
       width: 80px;
       font-size: 18px;
-    } 
-    
-	footer {
-	  background-color:LightGray;
-	  border-top: 1px solid lightgray;
-	  margin-top: 10px;
-	  padding: 10px;
+    }     
+
+  </style>
+  <script type="text/javascript">
+  /* 
+  javascript에서 다른 페이지로 이동할 때는 
+  location.href = "페이지주소(http://127.0.0.1~~)";
+   입력하면 된다.
+*/
+	function btn(){
+		location.href = 'index.html'
 	}
 	
-	footer ul{
-	  list-style-type: none;
-	}
-	footer ul li{
-	  padding: 5px;
-	  text-align: right;
-	}
-  </style>
+	function login() {
+		const form = document.frm
+    const email = form.email
+    const password = form.password
+    if(email.value.trim() == ''){
+      alert('이메일을 입력해주세요')
+    }else if(password.value.trim() == ''){
+      alert('비밀번호를 입력해주세요')
+    }else{
+      alert('모든 정보 입력 완료')
+      event.preventDefault()
+    }
+}
+  	
+  </script>
   <title>IT's SCSA - login</title>
 </head>
 <body>
@@ -74,15 +85,15 @@
       <ul>
         <li class="nav-item logo"><img src="logo.png" alt=""></li>
         <li class="nav-item"><a href="personal.html">개인</a></li>
-        <li class="nav-item"><a href="busines.html">기업</a></li>
-        <li class="nav-item">로그인</li>
-        <li class="nav-item">회원가입</li>
+        <li class="nav-item"><a href="business.html">기업</a></li>
+        <li class="nav-item"><a href="login.html">로그인</a></li>
+        <li class="nav-item"><a href="register.html">회원가입</a></li>
       </ul>
     </nav>
     <div id="banner">지금 당신의 행복! Only Your Life!</div>
     <div id="login">
       <h1>Login</h1>
-      <form action="">
+      <form action="" name="frm">
         <div class="form-item">
           <label for="email">이메일</label>
 		      <input type="text" id="email">
@@ -92,7 +103,9 @@
 		      <input type="password" id="password">
         </div>
         <hr>
-        <button>로그인</button>
+        <button type="button" onclick="login()">로그인</button>
+        
+        <button type="button" onclick="btn()">홈</button>
       </form>
     </div>
 

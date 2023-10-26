@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const itemChange = () => {
+            const subway = document.querySelector('#subway')
+            // 선택한 노선이 있다면 해당하는 노선을 선택
+            if(subway.value != null) alert(subway.value)
+        }
+    </script>
+</head>
+<body>
+    <h2>Select Form</h2>
+    <form action="#" name="frm">
+        <select id="subway" onchange="itemChange()">
+            <option>==노선 선택==</option>
+            <option value="1">1호선</option>
+            <option value="2">2호선</option>
+            <option value="3">3호선</option>
+            <option value="4">4호선</option>
+            <option value="5">5호선</option>
+        </select>
+    </form>
+</body>
+</html>

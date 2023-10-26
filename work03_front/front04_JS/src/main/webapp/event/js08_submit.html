@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const send = () => {
+            const id = document.querySelector('#userId')
+            if(id.value.trim() != ""){
+            	return confirm(`${id.value}님의 정보를 전송하시겠습니까?`)
+                document.querySelector('#memberFrm').submit()
+            }else{
+            	event.preventDefault()
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>화면 폼에 입력된 값을 서버의 파일이 받아서 처리하기</h2>
+    <form action="index.jsp" method="get" id="memberFrm">
+    아이디 : <input type="text" name="userId" id="userId"><br/><br/>
+    이  름 : <input type="text" name="userName" id="userName"><br/><br/>
+    이메일 : <input type="email" name="userEmail" id="userEmail"><br/><br/>
+    <input type="submit" value="DataSend" onclick="send()">
+    </form>
+</body>
+</html>

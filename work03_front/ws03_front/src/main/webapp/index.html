@@ -4,32 +4,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- article.css | nav.css |  footer.css 외부 파일 연결 -->
-  <link href="./css/article.css" rel="stylesheet" />
-  <link href="./css/nav.css" rel="stylesheet" />
-  <link href="./css/footer.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/article.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/footer.css">
   <style>
 
     article {
-      /* 
-      		1. flex 레이아웃 사용
-      		2. 요소들이 일정한 공간을 가지고 정렬되도록
-       */
       margin-top: 5px;
       display: flex;
       justify-content: space-between;
     }
 
-   article .main-item {   
-      /* 
-        1. 각 영역의 item들이 전체 화면 비율의 33%를 가지도록
-        2. display 속성이 마치 하이브리드 모드처럼 동작하도록 지정. 
-             즉, 기본적으로 inline 엘리먼트처럼 전후 줄바꿈 없이 한 줄에 다른 엘리먼트들과 나란히 배치되지만, 
-       block 엘리먼트처럼 width와 height 속성 지정이 가능합니다 
-       */
-       width: 33%;
-       display: inline-block;
+   article .main-item {
+      display: inline-block;
+      width: 33%;
     }
 
     article .main-item img{
@@ -53,6 +41,33 @@
     }
   </style>
   <title>SCSA</title>
+  <script>
+  
+  //1) banner 광고부분
+    const bannerList = [
+      '국민의 기업이 되겠습니다',
+      '기업 환경에 최적화된 클라우드 서비스를 제공합니다',
+      '디지털 물류 플랫폼 기반 서비스를 제공합니다',
+      '업무 프로세스별 SaaS 도입이 확장됩니다'
+    ]
+    let count = 0
+    onload = function(){
+      setInterval(() => {
+        const banner = document.querySelector('#banner')
+        banner.innerHTML = bannerList[(count++)%bannerList.length]
+      }, 3000)
+
+      //2) 버튼 클릭시 값 받아오기
+      const mainItemBtn = document.querySelectorAll('.main-item-btn')
+      mainItemBtn.forEach(item => {
+          item.onclick = function(){
+            alert(this.closest('.main-item').attributes['id'].value)
+          }
+        }
+      )
+    }
+   
+  </script>
 </head>
 <body>
   <div id="container">
@@ -60,30 +75,30 @@
       <ul>
         <li class="nav-item logo"><img src="logo.png" alt=""></li>
         <li class="nav-item"><a href="personal.html">개인</a></li>
-        <li class="nav-item"><a href="busines.html">기업</a></li>
+        <li class="nav-item"><a href="business.html">기업</a></li>
         <li class="nav-item"><a href="login.html">로그인</a></li>
         <li class="nav-item"><a href="register.html">회원가입</a></li>
       </ul>
     </nav>
     <div id="banner">지금 당신의 행복! Only Your Life!</div>
     <article>
-      <div class="main-item">
+      <div class="main-item" id="10">
         <img src="https://picsum.photos/200" alt="">
         <h2>main-item 1</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <button>button 1</button>
+        <button class="main-item-btn">button 1</button>
       </div>
-      <div class="main-item">
+      <div class="main-item"  id="20">
         <img src="https://picsum.photos/200" alt="">
         <h2>main-item 2</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <button>button 2</button>
+        <button class="main-item-btn">button 2</button>
       </div>
-      <div class="main-item">
+      <div class="main-item"  id="30">
         <img src="https://picsum.photos/200" alt="">
         <h2>main-item 3</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <button>button 3</button>
+        <button class="main-item-btn">button 3</button>
       </div>
     </article>
     
