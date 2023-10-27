@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function(){  
+            $('#saveBtn').on('click', () => {
+                localStorage.setItem('key1','안녕')
+                localStorage.key2 = 'HI'
+                localStorage['key3'] = 'Hello'
+            })
+            $('#delBtn').on('click', () => {
+                localStorage.removeItem('key1')
+            })
+            $('#delBtnAll').on('click', () => {
+                localStorage.clear()
+            })
+            $('#showBtn').on('click', () => {
+                alert(`${localStorage.getItem('key1')}, ${localStorage.getItem('key2')}, ${localStorage.getItem('key3')}`)
+            })
+        })
+    </script>    
+</head>
+<body>
+    <button id="saveBtn">저장</button>
+    <button id="delBtn">삭제</button>
+    <button id="delBtnAll">전체삭제</button>
+    <button id="showBtn">내용보기</button>
+</body>
+</html>

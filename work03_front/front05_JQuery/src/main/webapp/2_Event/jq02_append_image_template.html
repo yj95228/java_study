@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.angels {
+		width: 200px;
+		height: 250px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){  
+		// append() 함수는 태그에 content를 부착하는 기능
+		$('body').append("<h2>Image Append</h2>")
+		const img1 = '<img src=../image/1.jpg>'
+		const img2 = '<img src=../image/2.jpg>'
+		const img3 = '<img src=../image/3.jpg>'
+		$('body').append(img1+img2+img3)
+
+		$('img').addClass('angels')
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+

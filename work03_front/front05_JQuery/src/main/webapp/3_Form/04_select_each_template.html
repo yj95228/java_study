@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(function() {
+	$('#addOptionBtn').one('click', () => {
+		const arr = ['김하늘', '아이유', '아저씨', '염창희', '이제니']
+		$.each(arr, (_, item) => {
+			$('#friend').append(`<option>${item}</option>`)
+		})
+	})
+	$('#deleteOptionBtn').on('click', function(){
+		$('#friend>option').remove()
+	})
+});//ready
+</script>
+</head>
+<body>
+	<input type="button" value="옵션 생성" id="addOptionBtn">
+	<input type="button" value="옵션 삭제" id="deleteOptionBtn">
+	<select id="friend">	
+	</select>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
