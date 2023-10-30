@@ -11,6 +11,7 @@
 *.xml
 .eclipseproduct
 
+**/MANIFEST.MF
 **/bin
 **/build/
 **/Servers/
