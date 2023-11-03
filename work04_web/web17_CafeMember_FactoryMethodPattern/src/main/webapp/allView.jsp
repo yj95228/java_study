@@ -2,10 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%
-	ArrayList<MemberVO> list  = (ArrayList<MemberVO>)request.getAttribute("list");
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,21 +28,35 @@
 		</tr>
 	</thead>
 	<tbody>
-	<% 	
-		for(MemberVO vo : list){
-    %>
-    	<tr>
-    		<td class="text-center"><%= vo.getId() %></td>
-    		<td class="text-center"><%= vo.getName() %></td>
-    		<td class="text-center"><%= vo.getAddress() %></td>
-    	</tr>
-    <%
-		}
-    %>
+		<c:forEach items="${list}" var="vo">
+	    	<tr>
+	    		<td class="text-center">${vo.id}</td>
+	    		<td class="text-center">${vo.name}</td>
+	    		<td class="text-center">${vo.address}</td>
+	    	</tr>
+		</c:forEach>
     </tbody>
 </table>
-<h3 align="center"><a href="index.html">HOME...</a></h3>
+<h3 align="center"><a href="index.jsp">HOME...</a></h3>
 
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
