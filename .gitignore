@@ -9,6 +9,7 @@
 *.exe
 *.ini
 *.xml
+*.jar
 .eclipseproduct
 
 **/MANIFEST.MF

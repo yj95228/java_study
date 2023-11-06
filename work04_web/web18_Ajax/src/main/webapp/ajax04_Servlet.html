@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>비동기 통신</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#AjaxBtn').click(function(){
+			let id = $('#userId').val()
+			$.ajax({
+				type: "post",
+				data: {'id': id},
+				url: "AjaxServlet",
+				success: function(data){
+					$('#resultView').html('<h2>'+data+'</h2>')
+				} // callback
+			}) //ajax
+		}) // click
+	})
+</script>
+</head>
+<body>
+	<!-- 버튼 클릭하면 form값 받아오는 로직을 작성 -->
+	ID <input type="text" name="userId" id="userId" />
+	<input type="button" value="AjaxBtn" id="AjaxBtn" />
+	<div id="resultView">
+	</div>
+</body>
+</html>

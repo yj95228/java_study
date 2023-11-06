@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>비동기 통신</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		// 선택자와 함수를 연결
+		$('#JQueryAjax').click(function(){
+			// 비동기 통신 시작
+			$.ajax({
+				// 요청 부분
+				type: "get",
+				url: "./data.json", 	
+				
+				// 응답 부분 -> 데이터 응답 (결과 페이지 X)
+				success: function(resultData){
+					alert(resultData.name);
+				} // callback 함수
+			});//ajax
+		});//click
+	})
+</script>
+</head>
+<body>
+	<!-- 버튼을 클릭하면 비동기 통신이 시작되도록 로직을 작성 -->
+	<input type="button" value="JQueryAjax" id="JQueryAjax" />
+</body>
+</html>

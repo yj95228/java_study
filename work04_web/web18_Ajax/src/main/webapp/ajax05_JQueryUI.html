@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Accordion - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+  		$( "#accordion" ).accordion({
+  			heightStyle: 'content'
+  		});
+    	
+  		//1. h3 클릭하면 함수 호출
+  		$('h3').click(function(){
+  			let text = $(this).text()
+  			if(text == 'SCSA 이수과목'){
+  				$.ajax({
+  					type: 'get',
+  					url: 'subject.do',
+					success: function(data){
+						$('#subject').html(data)
+					}
+  				})
+  			}else if(text == 'SCSA 산학협력업체'){
+ 				$.ajax({
+ 					type: 'get',
+  					url: 'branch.do',
+					success: function(data){
+						$('#company').html(data)
+					}
+  				})  				
+  			}
+  		})
+  } );
+  </script>
+</head>
+<body>
+ 
+<div id="accordion">
+	<h3>Intro</h3>
+	<div>
+		<p>융합의 시대, 또는 통섭의 시대라는 말이 이제는 낯설지 않습니다. 언뜻 서로 연관 없어 보이는 영역들이 교류를 통해 기대 이상의 효과를 내는 일이 잦아지고 있습니다. 한 예로, 삼성전자의 모바일 기기들이 패션 브랜드와 협업을 진행하기도 했지요. 이 둘의 만남은 차가운 기계에 화려한 무늬를 덧입히는 것 이상의 가치를 만들어냈습니다.
+
+이처럼 융합의 시대를 말할 때 곧잘 언급되는 용어가 있습니다. 바로 ‘메디치 효과’라는 것인데요. 15세기 이탈리아 피렌체에 모인 다양한 분야의 전문가들이 협업을 통해 새로운 창조물들을 쏟아냈습니다. 그리고 이 창조물들은 르네상스의 원동력이 되었죠. 다양한 분야의 전문가들을 한 데 모으고 후원한 가문의 이름이 메디치였다는 데서 메디치 효과라는 용어가 생겨났고요.</p>
+	</div>
+	
+	<h3>SCSA 이수과목</h3>
+	<div>
+		<p id="subject"></p>
+	</div>
+	
+	<h3>SCSA 산학협력업체</h3>
+	<div>
+		<p id="company"></p>
+	</div>
+</div>
+ 
+ 
+</body>
+</html>
