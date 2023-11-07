@@ -9,13 +9,33 @@
 	$(function() {
 		$("#exec1").click(function() {
 			var words = $("#words").val();
-
+			$.ajax({
+				type: 'post',
+				data: {'words': words},
+				url: 'main.do?command=wordCount',
+				error: function(xhr, status, message){
+					alert('error: '+message);
+				},
+				success: function(result){
+					$('#result1').html(result);
+				}
+			})
 
 			
 		});//click
 		$("#exec2").click(function() {
 			var fname = $("#fname").val();
-			
+			$.ajax({
+				type: 'post',
+				data: {'fname': fname},
+				url: 'main.do?command=kickCount',
+				error: function(xhr, status, message){
+					alert('error: '+message);
+				},
+				success: function(result){
+					$('#result2').html(result);
+				}
+			})
 		});//click
 	});
 </script>
