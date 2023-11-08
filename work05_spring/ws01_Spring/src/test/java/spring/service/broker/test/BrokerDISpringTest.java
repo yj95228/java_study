@@ -12,12 +12,12 @@ public class BrokerDISpringTest {
 
 	public static void main(String[] args) {
 		ApplicationContext factory = new ClassPathXmlApplicationContext("/config/service.xml");
-		BrokerDatabase brokerDb = new BrokerDatabaseImpl();
 		
 		Customer c1 = (Customer) factory.getBean("customer01");
 		Customer c2 = (Customer) factory.getBean("customer02");
 		Stock s1 = (Stock)factory.getBean("stock01");
 		Stock s2 = (Stock)factory.getBean("stock02");
+		BrokerDatabase brokerDb = (BrokerDatabase) factory.getBean("dao");
 		
 		brokerDb.registerCustomer(c1);
 		brokerDb.registerCustomer(c2);
