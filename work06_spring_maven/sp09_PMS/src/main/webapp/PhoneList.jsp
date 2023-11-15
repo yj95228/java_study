@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 	<jsp:include page="/header.jsp"></jsp:include>
@@ -27,7 +28,7 @@
 				<td>${phone.model}</td>
 				<td>${phone.price}</td>
 				<td>${phone.company.vendor}</td>
-				<td><input type="checkbox"></td>
+				<td><input type="checkbox" data-num="${phone.num}"></td>
 			</tr>			
 			</c:forEach>
 		</tbody>
@@ -35,6 +36,22 @@
 	<a href="regPhone.do">추가 등록</a>&nbsp;
 	<a href="#" id="selectedDel">선택항목삭제</a>
 </body>
+<script>
+	$('#selectedDel').click(function(){
+		let param = ''
+		$('input[type=checkbox]:checked').each(function(index, item){
+			param = param+'&num='+$(item).attr('data-num')			
+		})
+		$.ajax({
+			type: 'post',
+			url: 'deleteAjax.do',
+			data: param,
+			success: function(result){
+				location.reload();
+			}
+		})
+	})
+</script>
 </html>
 
 
