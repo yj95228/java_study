@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 1. DB 서버 정보를 wiring -->
+	<properties resource="config/dbconn.properties" />
+	
+	<!-- settings -->
+	<settings>
+		<!-- 오라클에서 null값을 허용하는 옵션을 지정 -->
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+	
+	<!-- 2. VO 클래스를 연결 -->
+	<typeAliases>
+		<package name="com.service.spring.domain"/>
+	</typeAliases>
+	
+	<!-- 3. jdbc 환경세팅 -->
+	<environments default="DD">
+		<environment id="DD">
+			<transactionManager type="JDBC" />
+			<dataSource type="UNPOOLED">
+				<property name="driver" value="${jdbc.oracle.driver}"/>
+				<property name="url" value="${jdbc.oracle.url}"/>
+				<property name="username" value="${jdbc.oracle.username}"/>
+				<property name="password" value="${jdbc.oracle.password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- 4. sql for mappers wiring -->
+	<mappers>
+		<mapper resource="mapper/mybatis-item-mapping.xml"/>
+	</mappers>
+</configuration>

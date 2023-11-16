@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 
+	CRUD를 다 완벽하게 구현
+	C : INSERT
+	R : SELECT
+	U : UPDATE
+	D : DELETE
+ -->
+
+<mapper namespace="ProductMapper">
+	<!-- INSERT문에서 sequence 값이 PK일 때 PVO, RVO를 동기화시키는 방법 -->
+	<insert id="addProduct" parameterType="myProduct">
+		<selectKey keyProperty="id" order="BEFORE" resultType="int">
+			SELECT myproduct_seq.nextVal From dual
+		</selectKey>
+		INSERT INTO myproduct(id, name, maker, price)
+		VALUES (#{id}, #{name}, #{maker}, #{price})
+	</insert>
+	
+	<sql id="select-myproduct">
+		SELECT id, name, maker, price
+		FROM myproduct
+	</sql>
+	
+	<!-- Dynamic Query -->
+	<!--
+	 1. 상품명(특정 단어가 포함되면 가져오기)
+	 2. 제조사별로 가져오기
+	 3. 모든 상품 가져오기 
+	 -->
+	<select id="findProducts" resultType="myProduct">
+		<include refid="select-myproduct" />
+		<where>
+			<if test="value != null">
+				maker = #{maker}
+			</if>
+			<if test="value != null">
+				OR name LIKE '%' || #{VALUE} || '%'
+			</if>
+		</where>
+		ORDER BY id DESC
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

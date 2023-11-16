@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- CRUD + 동적 쿼리 + SQL 구문의 재사용 + ResultMap -->
+<mapper namespace="MemberMapper">
+	
+	<!-- sql구문의 모듈화 -->
+	<sql id="select-member">
+		SELECT id, password, name, address
+		FROM member
+	</sql>
+	
+	<!-- DML -->
+	<insert id="registerMember" parameterType="membervo">
+		INSERT INTO member(id, password, name, address)
+		VALUES(#{id}, #{password}, #{name}, #{address})
+	</insert>
+	
+	<update id="updateMember" parameterType="membervo">
+		UPDATE member 
+		SET password = #{password}, name = #{name}, address = #{address} 
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="deleteMember" parameterType="string">
+		DELETE member
+		WHERE id = #{VALUE}
+	</delete>
+	
+	<!-- SELECE -->
+	<select id="showAllMember" resultType="membervo">
+		<include refid="select-member"></include>
+	</select>
+	
+	<select id="getMember" parameterType="string" resultType="membervo">
+		<include refid="select-member"></include>
+		WHERE id = #{VALUE}
+	</select>
+	
+	<select id="idExist" parameterType="string" resultType="string">
+		SELECT id
+		FROM member
+		WHERE id = #{VALUE}
+	</select>
+	
+	<select id="login" parameterType="string" resultType="membervo">
+		<include refid="select-member"></include>
+		WHERE id = #{id} AND password = #{password}
+	</select>
+</mapper>

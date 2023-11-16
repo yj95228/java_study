@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+												 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<!-- Bean Configuration File -->
+	
+	<bean id="customer01" class="spring.service.customer.Customer">
+		<property name="ssn" value="01" />
+		<property name="custName" value="01유저" />
+		<property name="address" value="방배동" />
+	</bean>
+	
+	<bean id="customer02" class="spring.service.customer.Customer">
+		<constructor-arg name="ssn" value="02" />
+		<constructor-arg name="custName" value="02유저" />
+		<constructor-arg name="address" value="서초동" />
+	</bean>
+	
+	<bean id="stock01" class="spring.service.stock.Stock">
+		<property name="symbol" value="QQQ" />
+		<property name="price" value="123" />
+	</bean>
+	
+	<bean id="stock02" class="spring.service.stock.Stock">
+		<constructor-arg name="symbol" value="TSLA" />
+		<constructor-arg name="price" value="234" />
+	</bean>
+	
+	<bean id="dao" class="spring.service.broker.impl.BrokerDatabaseImpl" />
+	
+</beans>

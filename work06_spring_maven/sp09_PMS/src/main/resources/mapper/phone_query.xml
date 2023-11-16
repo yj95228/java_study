@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sql.pms.mapper">	
+	<insert id="insert" parameterType="phone">
+		 INSERT INTO phones (num, model, price, vcode)
+		 VALUES (#{num}, #{model}, #{price}, #{vcode})
+	</insert>
+	
+	<!-- 로그인: selectUser + login -->
+	<select id="selectUser" parameterType="userInfo" resultType="userInfo">
+		SELECT id, pw
+		FROM userinfo
+		WHERE id = #{id}
+		<if test="pw != null">
+			AND pw = #{pw}
+		</if>
+	</select>
+	
+	<!--  모든 휴대폰 조회하기 + 특정 휴대폰 조회하기 : num, model, price + vendor -->
+	<resultMap type="phone" id="phoneWithCompany">
+		<id column="num" property="num" />
+		<result column="model" property="model" />
+		<result column="price" property="price" />
+		<association property="company" javaType="company">
+			<id column="vcode" property="vcode" />
+			<result column="vendor" property="vendor" />
+		</association>
+	</resultMap>
+	<select id="select" parameterType="phone" resultMap="phoneWithCompany">
+		SELECT p.num, p.model, p.price, p.vcode, c.vendor
+		FROM phones p
+		JOIN company c
+		ON p.vcode = c.vcode
+		<if test="num != null">
+		WHERE TRIM(num) = #{num}
+		</if> 
+	</select>
+	
+	<delete id="delete" parameterType="list">
+		DELETE phones
+		WHERE num IN
+		<foreach collection="list" item="num" open="(" close=")" separator=",">
+			#{num}
+		</foreach>
+	</delete>
+</mapper>

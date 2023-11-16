@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--	
+	1. ResultMap : column명과 field명이 다를 때 사용하는 결과 맵
+	2. Dynamic Query
+		- select 구문에서만 사용하는 것들 (DML 쿼리문과는 상관 X)
+ -->
+<!-- getUserList01 -->
+<mapper namespace="UserMapper07">
+
+	<resultMap type="user" id="userSelectMap">
+		<result property="userId" column="user_id"/>
+		<result property="userName" column="user_name"/>
+		<result property="password" column="password"/>
+		<result property="age" column="age"/>
+		<result property="grade" column="grade"/>
+		<result property="regDate" column="reg_date"/>
+	</resultMap>
+	
+	<!-- Static Query -->
+	<select id="getUserList01" parameterType="user" resultMap="userSelectMap">
+		SELECT user_id, user_name, password, age, grade, reg_date
+		FROM users
+		WHERE password = #{password}
+	</select>
+	
+	<!-- Dynamic Query
+		- select 구문에서만 사용하는 것들 (DML 쿼리문과는 상관 X)
+		- where절 조건이 달라져도 하나의 쿼리문으로 실행되는 쿼리
+	-->
+	
+	<select id="getUserList" parameterType="user" resultMap="userSelectMap">
+		SELECT user_id, user_name, password, age, grade, reg_date
+		FROM users
+		<where>
+			<if test="userName != null">
+				user_name LIKE #{userName}
+			</if>
+			<if test="age != null">
+				OR age LIKE #{age}
+			</if>
+		</where>
+		ORDER BY user_id DESC
+	</select>
+</mapper>
